@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb)); */
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.existing-games-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.game-card {
+  background: #7a7676;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px;
+  flex: 1;
+  min-width: calc(33.333% - 20px);
+  max-width: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.game-card:hover {
+  background: #413d3d;
+}
+
+.game-id,
+.game-status,
+.game-player {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .game-card {
+    min-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+    min-width: 100%;
+  }
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-row {
+  display: flex;
+}
+
+.board-cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.board-cell:hover {
+  background-color: #777676;
+}
+
+.player-info {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.waiting,
+.loading,
+.error {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .board-cell {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.participant {
+  border-color: rgb(77, 180, 77);
+}
+
+.is-user {
+  font-weight: bold;
+  color: rgb(94, 194, 94);
+}
